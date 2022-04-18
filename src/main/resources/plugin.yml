@@ -1,0 +1,4 @@
+name: NTIR-Chat
+version: '${project.version}'
+main: me.aq.plugin.ntirchat.NTIRChat
+api-version: 1.18
