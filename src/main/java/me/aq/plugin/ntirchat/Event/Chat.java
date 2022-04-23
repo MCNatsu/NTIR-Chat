@@ -22,6 +22,8 @@ public class Chat implements Listener{
         String message = e.getMessage();
 
         ByteArrayDataOutput out = ByteStreams.newDataOutput();
+        out.writeUTF(plugin.getServer().getMotd());
+        out.writeUTF(p.getName());
         out.writeUTF(p.getUniqueId().toString());
         out.writeUTF(message);
         p.sendPluginMessage(plugin,"ntir:chat",out.toByteArray());

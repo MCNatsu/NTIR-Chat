@@ -1,6 +1,7 @@
 package me.aq.plugin.ntirchat.Data;
 
 import me.aq.plugin.ntirchat.NTIRChat;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 import java.sql.PreparedStatement;
@@ -14,7 +15,7 @@ public class SQLeditor {
     private NTIRChat plugin = NTIRChat.getPlugin();
 
     //玩家聊天設定(玩家發送訊息)
-    public String getPrefix(Player p){
+    public String getPrefix(OfflinePlayer p){
         try {
             PreparedStatement ps = plugin.SQL.getConnection().prepareStatement("SELECT Prefix FROM PlayerChatSettings WHERE UUID=?");
             ps.setString(1,p.getUniqueId().toString());
@@ -31,7 +32,7 @@ public class SQLeditor {
         return null;
     }
 
-    public String getPrefixColor(Player p){
+    public String getPrefixColor(OfflinePlayer p){
         try {
             PreparedStatement ps = plugin.SQL.getConnection().prepareStatement("SELECT PrefixColor FROM PlayerChatSettings WHERE UUID=?");
             ps.setString(1,p.getUniqueId().toString());
@@ -48,7 +49,7 @@ public class SQLeditor {
         return null;
     }
 
-    public String getNameColor(Player p){
+    public String getNameColor(OfflinePlayer p){
         try {
             PreparedStatement ps = plugin.SQL.getConnection().prepareStatement("SELECT NameColor FROM PlayerChatSettings WHERE UUID=?");
             ps.setString(1,p.getUniqueId().toString());
@@ -65,7 +66,7 @@ public class SQLeditor {
         return null;
     }
 
-    public String getCustomName(Player p){
+    public String getCustomName(OfflinePlayer p){
         try {
             PreparedStatement ps = plugin.SQL.getConnection().prepareStatement("SELECT CustomName FROM PlayerChatSettings WHERE UUID=?");
             ps.setString(1,p.getUniqueId().toString());
